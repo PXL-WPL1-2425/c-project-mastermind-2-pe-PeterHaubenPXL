@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Microsoft.VisualBasic;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Mastermind
 {
@@ -48,6 +49,10 @@ namespace Mastermind
         List<StackPanel> list = new List<StackPanel>();
 
         string codeString = "";
+
+        string[] highScores = new string[15]; //[naam speler] - [x pogingen] - [score/100]
+
+        string player = "";
 
 
         public MainWindow()
@@ -672,7 +677,7 @@ namespace Mastermind
             //    }
             //}
 
-            StartGame();
+            player = StartGame();
 
             gameStarted = true;
             dissolved = false;
@@ -959,19 +964,17 @@ namespace Mastermind
                     scoreLabel.Content = $"Poging {attempts}/10 Score = {points}";
                     debugStackPanel.Visibility = Visibility.Visible;
                     gameStarted = false;
-
                     dissolved = true;
 
-                    //MessageBoxResult result = MessageBox.Show($"Code is gekraakt in {attempts} pogingen. Wil je nog eens?", "WINNER", MessageBoxButton.YesNo, MessageBoxImage.Information);
-                    //if (result == MessageBoxResult.Yes)
-                    //{
-                    //    dissolved = true;
-                    //    newGameButton_Click(null, null);
-                    //}
-                    //else
-                    //{
-                    //    this.Close();
-                    //}
+                    for(int i=0; i < highScores.Length; i++)
+                    {
+                        if (highScores[i].Length == 0)
+                        {
+                            highScores[i] = $"{player} - {attempts} pogingen - {points}/100";
+                            break;
+                        }
+                    }
+
                     return;
                 }
                 else
