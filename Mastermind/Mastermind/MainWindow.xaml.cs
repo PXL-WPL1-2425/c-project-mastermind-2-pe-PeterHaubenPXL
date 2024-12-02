@@ -1282,5 +1282,23 @@ namespace Mastermind
         {
             this.Close();
         }
+
+        private void highScoresMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            string highScoresString = "";
+
+            for (int i = 0; i < highScores.Length; i++) 
+            {
+                if (highScores[i].Length > 0)
+                {
+                    highScoresString = highScores[i] + "\n";
+                }
+                else
+                {
+                    break;
+                }        
+            }
+            MessageBox.Show(highScoresString, "Mastermind highscores");
+        }
     }
 }

@@ -36,7 +36,7 @@
 		<Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" Padding="3">
 			<MenuItem Header="Bestand">
 				<MenuItem Header="Nieuw spel" ></MenuItem>
-				<MenuItem Header="Highscores"></MenuItem>
+				<MenuItem Click="highScoresMenuItem_Click" Header="Highscores" Name="highScoresMenuItem"></MenuItem>
 				<MenuItem Click="closeGameMenuItem_Click"  Header="Afsluiten" Name="closeGameMenuItem"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Instellingen">
