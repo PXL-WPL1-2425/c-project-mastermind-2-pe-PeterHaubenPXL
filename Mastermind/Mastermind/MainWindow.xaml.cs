@@ -968,7 +968,7 @@ namespace Mastermind
 
                     for(int i=0; i < highScores.Length; i++)
                     {
-                        if (highScores[i].Length == 0)
+                        if (highScores[i] == null)
                         {
                             highScores[i] = $"{player} - {attempts} pogingen - {points}/100";
                             break;
