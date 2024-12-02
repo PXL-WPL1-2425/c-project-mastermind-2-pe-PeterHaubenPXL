@@ -960,16 +960,18 @@ namespace Mastermind
                     debugStackPanel.Visibility = Visibility.Visible;
                     gameStarted = false;
 
-                    MessageBoxResult result = MessageBox.Show($"Code is gekraakt in {attempts} pogingen. Wil je nog eens?", "WINNER", MessageBoxButton.YesNo, MessageBoxImage.Information);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        dissolved = true;
-                        newGameButton_Click(null, null);
-                    }
-                    else
-                    {
-                        this.Close();
-                    }
+                    dissolved = true;
+
+                    //MessageBoxResult result = MessageBox.Show($"Code is gekraakt in {attempts} pogingen. Wil je nog eens?", "WINNER", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    //if (result == MessageBoxResult.Yes)
+                    //{
+                    //    dissolved = true;
+                    //    newGameButton_Click(null, null);
+                    //}
+                    //else
+                    //{
+                    //    this.Close();
+                    //}
                     return;
                 }
                 else
@@ -1257,8 +1259,7 @@ namespace Mastermind
                         StartCountdown();
                     }
                     
-                    e.Cancel = true;
-                }
+                    e.Cancel = true;}
             }
         }
 
@@ -1274,5 +1275,9 @@ namespace Mastermind
             return Name;
         }
 
+        private void closeGameMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

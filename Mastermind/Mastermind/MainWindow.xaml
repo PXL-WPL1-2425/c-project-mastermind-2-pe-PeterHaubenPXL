@@ -37,7 +37,7 @@
 			<MenuItem Header="Bestand">
 				<MenuItem Header="Nieuw spel" ></MenuItem>
 				<MenuItem Header="Highscores"></MenuItem>
-				<MenuItem Header="Afsluiten"></MenuItem>
+				<MenuItem Click="closeGameMenuItem_Click"  Header="Afsluiten" Name="closeGameMenuItem"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Instellingen">
 				<MenuItem Header="Aantal pogingen"></MenuItem>
