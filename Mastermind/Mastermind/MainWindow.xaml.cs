@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Microsoft.VisualBasic;
 
 namespace Mastermind
 {
@@ -657,19 +658,21 @@ namespace Mastermind
         {
             controlButton.IsDefault = true;
 
-            if (!dissolved && gameStarted)
-            {
-                MessageBoxResult result = MessageBox.Show("Wilt u het spel vroegtijdig beëindigen?", $"Poging {attempts + 1}/10", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+            //if (!dissolved && gameStarted)
+            //{
+            //    MessageBoxResult result = MessageBox.Show("Wilt u het spel vroegtijdig beëindigen?", $"Poging {attempts + 1}/10", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
 
-                if (result == MessageBoxResult.Yes)
-                {
-                    this.Close();
-                }
-                else
-                {
-                    return;
-                }
-            }
+            //    if (result == MessageBoxResult.Yes)
+            //    {
+            //        this.Close();
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+            //}
+
+            StartGame();
 
             gameStarted = true;
             dissolved = false;
@@ -1259,6 +1262,17 @@ namespace Mastermind
             }
         }
 
-    }
+        private string StartGame()
+        {
+            string name = "";
 
+            do
+            {
+                name = Interaction.InputBox("Geef je naam in", "Geef je naam in", "", 50, 50);
+            }while(name.Length == 0);
+
+            return Name;
+        }
+
+    }
 }
